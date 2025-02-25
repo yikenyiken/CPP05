@@ -26,7 +26,7 @@ class Form
 		bool		getSignStatus();
 		int			getSignGrade();
 		int			GetExecuteGrade();
-		void		beSigned(Bureaucrat &employee);
+		void		beSigned(Bureaucrat &signer);
 
 	private:
 		class GradeTooHighException : public std::exception

@@ -14,7 +14,7 @@ class ShruberryCreationForm : public AForm
 		~ShruberryCreationForm();
 
 		ShruberryCreationForm	&operator = (const ShruberryCreationForm &rhs);
-		void					execute(const Bureaucrat &executor) const;
+		void					executeAction() const;
 };
 
 #endif
