@@ -1,5 +1,5 @@
-#ifndef Form_HPP
-# define Form_HPP
+#ifndef AForm_HPP
+# define AForm_HPP
 # include <string>
 # define HIGHEST_GRADE 1
 # define LOWEST_GRADE 150
@@ -22,12 +22,13 @@ class AForm
 		~AForm();
 
 		AForm			&operator = (const AForm &rhs);
-		std::string		getName();
-		bool			getSignStatus();
-		int				getSignGrade();
-		int				GetExecuteGrade();
-		void			beSigned(Bureaucrat &employee);
-		virtual void	execute(Bureaucrat const & executor) const = 0;
+		std::string		getName() const;
+		bool			getSignStatus() const;
+		int				getSignGrade() const;
+		int				GetExecuteGrade() const;
+		void			beSigned(Bureaucrat &signer);
+		void			execute(Bureaucrat const & executor) const;
+		virtual void	executeAction() const = 0;
 
 	private:
 		class GradeTooHighException : public std::exception
@@ -36,6 +37,12 @@ class AForm
 		};
 
 		class GradeTooLowException : public std::exception
+		{
+			// need make it [public] ?
+			const char	*what() const throw();
+		};
+
+		class UnsignedFormException : public std::exception
 		{
 			const char	*what() const throw();
 		};

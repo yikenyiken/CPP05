@@ -1,7 +1,11 @@
 NAME	= a.out
 FLAGS	= -Werror -Wall -Wextra -std=c++98
-HEADERS	= Bureaucrat.hpp Form.hpp
-SRCS	= main.cpp Bureaucrat.cpp Form.cpp
+HEADERS	= Bureaucrat.hpp AForm.hpp ShruberryCreationForm.hpp \
+		  RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+
+SRCS	= main.cpp Bureaucrat.cpp ShruberryCreationForm.cpp \
+		  RobotomyRequestForm.cpp AForm.cpp PresidentialPardonForm.cpp
+
 OBJS	= $(SRCS:.cpp=.o)
 
 all	: $(NAME)
